@@ -1,0 +1,119 @@
+<html>
+
+<head>
+    <title>Game Watch | ADMIN</title>
+    <meta charset="utf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="../IMG/logo.png"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+    <link href='../CSS/index.css' rel="stylesheet">
+    
+</head>
+
+<body>
+
+    <div class="container-fluid bg-dark">
+        <div class="row">
+            <div class="col text-center">
+                <img src="../IMG/logo.gif" width="6%">
+            </div>        
+        </div>
+        <div class="row">
+            <div class="col text-center pt-2 display-3 text-warning font-weight-bold">GAME WATCH <span class="text-info">(Admin Panel)</span> </div>
+        </div>
+    </div>
+
+    <div class="container black mt-5">
+        <div class="row">
+            <div class="col text-center display-2 text-success font-weight-bold">ADD GAME</div>
+        </div>
+    </div>
+
+    <div class="container black">
+        <form method="post" action="addgame.php" enctype="multipart/form-data">
+            <table class="text-white h1">
+                <tr>
+                    <td class="pl-4 pt-4">Select Game Image</td>
+                    <td class="text-center"><input name="f" class="h3 black pt-4 w-75" type="file"></td>
+                </tr>
+                <tr>
+                    <td class="pl-4 pt-4">Enter Game Title</td>
+                    <td class="pt-4 text-center"><input name="t" class="w-75" placeholder="Call of duty"></td>
+                </tr>
+                <tr>
+                    <td class="pl-4 pt-4">Enter Game Release Date &nbsp;</td>
+                    <td class="pt-4 text-center"><input name="rd" class="w-75" type="date"></td>
+                </tr>
+                <tr>
+                    <td class="pl-4 pt-4">Enter Game Rating</td>
+                    <td class="pt-4 text-center"><input name="r" class="w-75" placeholder="9.2"></td>
+                </tr>
+                <tr>
+                    <td class="pl-4 pt-4">Enter Game Type</td>
+                    <td class="pt-4 text-center"><input name="ty" class="w-75" placeholder="AAA"></td>
+                </tr>
+                <tr>
+                    <td class="pl-4 py-4">Enter Game Description</td>
+                    <td class="py-4 text-center"><input name="d" class="w-75" placeholder="Details about game"></td>
+                </tr>
+                <tr>
+                    <td class="text-center py-4" colspan=2> <button class="btn btn-warning btn-lg px-5">ADD</button> </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+    <div class="container black mt-5">
+        <div class="row">
+            <div class="col text-center display-2 text-danger font-weight-bold">DELETE GAME</div>
+        </div>
+    </div>
+
+    <div class="container black">
+        <form method="post" action="delgame.php">
+            <div class="row">
+                <div class="col h1 text-white my-4 pl-5">Enter Game Title For Removing</div>
+            </div>
+            <div class="row">
+                <div class="col my-4 pl-5"><input name="t" class="w-75" placeholder="Game Name"></div>
+            </div>
+            <div class="row">
+                <div class="col my-4 text-center"><button class="btn btn-warning btn-lg">DELETE</button></div>
+            </div>
+        </form>
+    </div>
+
+    <div class="container black mt-5">
+        <div class="row">
+            <div class="col text-center display-2 text-warning font-weight-bold">UPDATE GAME</div>
+        </div>
+    </div>
+
+    <div class="container black">
+        <form method="post" action="upgame.php">
+            <div class="row">
+                <div class="col h1 text-white my-4 pl-5">Enter Game Title For Updating</div>
+            </div>
+            <div class="row">
+                <div class="col my-4 pl-5"><input name="t" class="w-75" placeholder="Game Name"></div>
+            </div>
+            <div class="row">
+                <div class="col my-4 text-center"><button class="btn btn-warning btn-lg">UPDATE</button></div>
+            </div>
+        </form>
+    </div>   
+    
+    <div class="container black mt-5">
+        <div class="row">
+            <div class="col text-center display-2 text-primary font-weight-bold">SHOW ALL GAMES</div>
+        </div>
+        <div class="row py-5">
+            <div class="col text-center"> <a class="btn btn-warning btn-lg" href="showgame.php">SHOW ALL</a> </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

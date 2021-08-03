@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainScreen"
+    android:orientation="vertical">
+
+    <ProgressBar
+        android:id="@+id/delLoad"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/purple_700"
+        android:weightSum="80">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="QR Chat"
+            android:textSize="35sp"
+            android:textColor="@color/white"
+            android:layout_margin="8dp"
+            android:textStyle="bold|italic"/>
+
+        <ImageView
+            android:id="@+id/user_pp"
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_launcher_foreground"
+            android:layout_weight="20"/>
+
+        <TextView
+            android:id="@+id/user_email"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            android:text="bassam@gmail.com"
+            android:layout_marginTop="18dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="20"/>
+
+        <Button
+            android:id="@+id/log_out_btn"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="41dp"
+            android:layout_height="wrap_content"
+            app:icon="@android:drawable/ic_lock_power_off"
+            android:layout_weight="20"
+            app:iconTint="#FFFFFF"/>
+
+        <Button
+            android:id="@+id/add_friends"
+            style="@style/Widget.MaterialComponents.Button.TextButton.Icon"
+            android:layout_width="44dp"
+            android:layout_height="wrap_content"
+            app:icon="@android:drawable/ic_input_add"
+            android:layout_weight="20"
+            app:iconTint="#FFFFFF"/>
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/friends"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:dividerHeight="10dp"
+        android:layout_marginTop="10dp"/>
+
+</LinearLayout>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Game Watch | SIGN-UP</title>
+    <meta charset="utf-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" href="../IMG/logo.png"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet'>
+    <link href='../CSS/index.css' rel="stylesheet">
+    
+
+    <script>
+        function make_checker(){
+            
+            document.getElementById("u").style.borderColor = "black";
+            document.getElementById("e").style.borderColor = "black";
+            document.getElementById("p").style.borderColor = "black";
+            document.getElementById("d").style.borderColor = "black";
+            document.getElementById("n").style.borderColor = "black";
+            document.getElementById("err_u").innerHTML = "";
+            document.getElementById("err_e").innerHTML = "";
+            document.getElementById("err_p").innerHTML = "";
+            document.getElementById("err_d").innerHTML = "";
+            document.getElementById("err_n").innerHTML = "";
+
+            var pat_u = /^[a-zA-Z ]+$/;
+            var pat_e = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            var pat_p1 = /[A-Z]{1,100}/;
+            var pat_p2 = /[a-z]{1,100}/;
+            var pat_p3 = /[0-9]{1,100}/;
+            var pat_n = /^[+][9][2]-[0-9]{3}-[0-9]{7}$/;
+
+            var flag = true;
+
+            if(document.getElementById("u").value==""){
+                document.getElementById("u").style.borderColor = "red";
+                document.getElementById("err_u").style.color = "red";
+                document.getElementById("err_u").innerHTML = "Username can't be empty!";
+                flag = false;
+            }
+            else if(document.getElementById("u").value.search(pat_u)==-1){
+                document.getElementById("u").style.borderColor = "red";
+                document.getElementById("err_u").style.color = "red";
+                document.getElementById("err_u").innerHTML = "Username can only be Alphabets!";
+                flag = false;
+            }
+
+            if (document.getElementById("e").value==""){
+                document.getElementById("e").style.borderColor = "red";
+                document.getElementById("err_e").style.color = "red";
+                document.getElementById("err_e").innerHTML = "Email can't be empty!";
+                flag = false;
+            }
+            else if (document.getElementById("e").value.search(pat_e)==-1){
+                document.getElementById("e").style.borderColor = "red";
+                document.getElementById("err_e").style.color = "red";
+                document.getElementById("err_e").innerHTML = "Invalid Email pattern!";
+                flag = false;
+            }
+
+            if(document.getElementById("p").value==""){
+                document.getElementById("p").style.borderColor = "red";
+                document.getElementById("err_p").style.color = "red";
+                document.getElementById("err_p").innerHTML = "Password can't be empty!";
+                flag = false;
+            }
+            else if(document.getElementById("p").value.search(pat_p1)==-1){
+                document.getElementById("p").style.borderColor = "red";
+                document.getElementById("err_p").style.color = "red";
+                document.getElementById("err_p").innerHTML = "Use capital letters also!";
+                flag = false;
+            }
+            else if(document.getElementById("p").value.search(pat_p2)==-1){
+                document.getElementById("p").style.borderColor = "red";
+                document.getElementById("err_p").style.color = "red";
+                document.getElementById("err_p").innerHTML = "Use small letters also!";
+                flag = false;
+            }
+            else if(document.getElementById("p").value.search(pat_p3)==-1){
+                document.getElementById("p").style.borderColor = "red";
+                document.getElementById("err_p").style.color = "red";
+                document.getElementById("err_p").innerHTML = "Use numbers also!";
+                flag = false;
+            }
+            else if(document.getElementById("p").value.length <6){
+                document.getElementById("p").style.borderColor = "red";
+                document.getElementById("err_p").style.color = "red";
+                document.getElementById("err_p").innerHTML = "Use more then 6 characters!";
+                flag = false;
+            }
+
+            if(document.getElementById("d").value==""){
+                document.getElementById("d").style.borderColor = "red";
+                document.getElementById("err_d").style.color = "red";
+                document.getElementById("err_d").innerHTML = "Date of birth can't be empty!";
+                flag = false;
+            }
+
+            if(document.getElementById("n").value==""){
+                document.getElementById("n").style.borderColor = "red";
+                document.getElementById("err_n").style.color = "red";
+                document.getElementById("err_n").innerHTML = "Phone Number can't be empty!";
+                flag = false;
+            }
+            else if(document.getElementById("n").value.search(pat_n)==-1){
+                document.getElementById("n").style.borderColor = "red";
+                document.getElementById("err_n").style.color = "red";
+                document.getElementById("err_n").innerHTML = "Invalid phone number pattern!";
+                flag = false;
+            }
+
+            if(flag == true){
+                return true;
+            }
+            else
+                return false;
+    }
+    </script>
+
+</head>
+
+<body>
+
+    <div class="container-fluid bg-dark">
+
+        <div class="row">
+            <div class="col-md-1"> <img src="../IMG/logo.gif" width="100%"> </div>
+            <div class="col-md-9 ml-5 pl-5 display-1 text-warning font-weight-bold">GAME WATCH</div>
+        </div>
+
+    </div>
+
+
+
+
+    <div class="black container mt-5 text-white py-4 pt-5 w-50">
+        <form onsubmit="return make_checker();" method="post" action="isSignup.php">
+            <div class="row"><div class="col-md-12 display-4 text-center"> Create <span class="text-warning">Game Watch</span> Account</div></div>
+            <div class="row my-5 mx-5"> <div class="col">
+                <label class="h3 text-white">Username:</label><br>
+                <input name="u" id="u" class="w-100" type="text" placeholder="GamerBone">
+                <span id="err_u"></span>
+            </div></div>
+            <div class="row my-5 mx-5"> <div class="col">
+                <label class="h3 text-white">Email:</label><br>
+                <input name="e" id="e" class="w-100" type="text" placeholder="example123@gamewatch.com">
+                <span id="err_e"></span>
+            </div></div>
+            <div class="row mb-5 mx-5"> <div class="col">
+                <label class="h3 text-white">Password:</label><br>
+                <input name="p" id="p" class="w-100" type="password" placeholder=&bull;&bull;&bull;&bull;&bull;&bull;&bull;>
+                <span id="err_p"></span>
+            </div></div>
+            <div class="row my-5 mx-5"> <div class="col">
+                <label class="h3 text-white">Date of birth:</label><br>
+                <input name="d" id="d" class="w-100 text-white" type="date">
+                <span id="err_d"></span>
+            </div></div>
+            <div class="row my-5 mx-5"> <div class="col">
+                <label class="h3 text-white">Phone Number:</label><br>
+                <input name="n" id="n" class="w-100" type="text" placeholder="+92-xxx-xxxxxxx">
+                <span id="err_n"></span>
+            </div></div>
+            <div class="row"> <div class="col text-center">
+                <button class="btn btn-warning btn-lg" type="submit"> Sign-Up </button>
+            </div></div>
+            <div class="row pt-5"> <div class="col text-center">
+                <a class="h5 text-danger" href="./login.php">Already have an account ?</a>
+            </div></div>       
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container-fluid text-white">
+        <div class="row bg-dark mt-5">
+            <div class="col-md-8 py-2">Copyright &copy; Game Watch. All Rights reserved</div>
+            <div class="col-md-1 my-2 border-right"><a class="text-light" href="./home.html">Home</a></div>
+            <div class="col-md-1 my-2 border-right"><a class="text-light" href="./sales.html">Sales</a></div>
+            <div class="col-md-1 my-2 border-right"><a class="text-light" href="./platform.html">Platforms</a></div>
+            <div class="col-md-1 my-2"><a class="text-light" href="./aboutUs.html">About Us</a></div>
+        </div>
+    </div>
+
+</body>
+</html>
