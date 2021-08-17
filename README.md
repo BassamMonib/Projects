@@ -6,7 +6,8 @@ Different Projects and Smaples I have worked on using contrasting technologies, 
 ## Truffle Sample Balance Project
 
 * A Sample balance contract for showing truffle basic idea
-* Testing the solidity contract by writing test case in JS
+* Testing the solidity contract by writing testcases in JS
+* Wrote migration file and deployed on develop net
 
 ## ERC721 CasperLabs Project
 
@@ -17,10 +18,11 @@ Different Projects and Smaples I have worked on using contrasting technologies, 
 
 # Semester Projects
 
-## SQL Databases
+## SQL Databases Sample Tasks
 
 * Performed database requirements gathering and documentation
 * SQL query writing and built database structure
+* Executed DDL and DML queries
 * Performed DBMS related operations using MySQL
 * Developed ERD diagrams and database schemas
 
