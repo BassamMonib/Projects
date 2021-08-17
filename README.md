@@ -1,7 +1,7 @@
 # Projects & Samples
 Different Projects and Smaples I have worked on using contrasting technologies, feel free to have a look :slightly_smiling_face:
 
-# BLOCKCHAIN
+# Blockchain
 
 ## Truffle Sample Balance Project
 
@@ -15,7 +15,7 @@ Different Projects and Smaples I have worked on using contrasting technologies, 
 * Deployment done on casper testnet
 * Able to use the casper wallet chrome extension 
 
-# SEMESTER PROJECTS
+# Semester Projects
 
 ## SQL Databases
 
