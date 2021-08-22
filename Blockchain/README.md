@@ -1,5 +1,10 @@
 # Blockchain
 
+## Hardhat CryptoZombies TestCases
+* Unit testing using waffle, ethers.js and chai
+* Different features of CryptoZombies are tested
+* NatSpec comment standard used while writing test cases
+
 ## Truffle Sample Balance Project
 
 * A Sample balance contract for showing truffle basic idea
