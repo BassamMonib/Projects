@@ -9,7 +9,7 @@
 
 ## Truffle
 
-### CryptoZombies TestCases
+### CryptoZombies Testing and Deployment
 * Unit testing using chai and openzeppelin
 * Different features of CryptoZombies are tested
 * Testing the solidity contract by writing testcases in JS
