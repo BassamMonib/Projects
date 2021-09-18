@@ -22,7 +22,7 @@ This will create a build directory which will contain the JSON atrifacts
 After following the above steps, testing can be performed using following command
 ```truffle test```
 
-![alt text](https://github.com/BassamMonib/Projects/tree/main/Blockchain/Truffle/CryptoZombies/test.png?raw=true)
+![Executed Tests Screenshot](https://github.com/BassamMonib/Projects/tree/main/Blockchain/Truffle/CryptoZombies/test.png)
 
 ## Deployment
 
@@ -33,7 +33,7 @@ As we will be deploying on *Rinkeby* testnet, so we need wallet for interaction 
 Following lines must be added for wallet functionality
 ```
 const HDWalletProvider = require("truffle-hdwallet-provider");
-const mnemonic = "YOUR MNEMONIC (*12 word seed phrase*)";
+const mnemonic = "YOUR MNEMONIC (12 word seed phrase)";
 ```
 
 *Note: The walled whose seed is being provided must be funded using faucet*
@@ -55,4 +55,4 @@ Created a migration file named **2_crypto_zombie.js** which helps truffle to dep
 Now for deployment, following command is used (--netowrk flag is used to tell on what network it will deploy e.g. Mainnet, Kovan, Rinkeby etc.)
 ```truffle migrate --network rinkeby```
 
-![alt text](https://github.com/BassamMonib/Projects/tree/main/Blockchain/Truffle/CryptoZombies/deploy.png?raw=true)
+![Deployment Screenshot](https://github.com/BassamMonib/Projects/tree/main/Blockchain/Truffle/CryptoZombies/deploy.png)
