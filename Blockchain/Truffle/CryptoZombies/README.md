@@ -22,7 +22,7 @@ This will create a build directory which will contain the JSON atrifacts
 After following the above steps, testing can be performed using following command
 ```truffle test```
 
-![Executed Tests Screenshot](https://github.com/BassamMonib/Projects/tree/main/Blockchain/Truffle/CryptoZombies/test.png)
+![Executed Tests Screenshot](test.png)
 
 ## Deployment
 
@@ -55,4 +55,4 @@ Created a migration file named **2_crypto_zombie.js** which helps truffle to dep
 Now for deployment, following command is used (--netowrk flag is used to tell on what network it will deploy e.g. Mainnet, Kovan, Rinkeby etc.)
 ```truffle migrate --network rinkeby```
 
-![Deployment Screenshot](https://github.com/BassamMonib/Projects/tree/main/Blockchain/Truffle/CryptoZombies/deploy.png)
+![Deployment Screenshot](deploy.png)
