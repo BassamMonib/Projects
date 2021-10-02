@@ -7,6 +7,11 @@
 * Different features of CryptoZombies are tested
 * NatSpec comment standard used while writing test cases
 
+### Order Book Marketplace contract and testing
+* Buyer can buy an asset and can put up a buying request for an asset in a desired price
+* Seller can place an order of their asset and can set demand price for an asset
+* Smart Contract matches the buyers request with the matching sellers demand and then remove both matching buying and selling request data when order finished
+
 ## Truffle
 
 ### CryptoZombies Testing and Deployment
