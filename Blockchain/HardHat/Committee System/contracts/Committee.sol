@@ -42,12 +42,7 @@ contract CommitteePool {
         pools[indx].getApprovalForToken(
             msg.sender,
             address(this),
-            pools[indx].getfixedAmount() / 2
-        );
-        pools[indx].transferFrom(
-            msg.sender,
-            address(this),
-            pools[indx].getfixedAmount() / 2
+            pools[indx].getfixedAmount()
         );
         pools[indx].transferFrom(
             msg.sender,
@@ -66,6 +61,19 @@ contract CommitteePool {
         require(_isPoolPresent(_name, _symbol), "Pool not present");
         require(!pools[indx].getLock(), "Pool is locked");
         pools[indx].addMe(msg.sender);
+
+	// Security Amount
+	pools[indx].getApprovalForToken(
+            msg.sender,
+            address(this),
+            pools[indx].getfixedAmount() / 2
+        );
+	pools[indx].transferFrom(
+            msg.sender,
+            address(this),
+            pools[indx].getfixedAmount() / 2
+        );
+
         payCommittee();
     }
 
