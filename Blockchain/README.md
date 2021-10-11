@@ -12,6 +12,12 @@
 * Seller can place an order of their asset and can set demand price for an asset
 * Smart Contract matches the buyers request with the matching sellers demand and then remove both matching buying and selling request data when order finished
 
+### Committee saving system
+* A person can create a committee pool of a certain token
+* Other people can participate in this committee pool by depositing that token
+* Fixed deposit amount is decided by the pool creator
+* At Payment intervals, a person among the participants of pool will get the committee sum amount pre-decided by the pool creator
+
 ## Truffle
 
 ### CryptoZombies Testing and Deployment
