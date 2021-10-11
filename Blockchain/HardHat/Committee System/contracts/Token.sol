@@ -119,6 +119,23 @@ contract Token is ERC20, Ownable {
         delete participants[rand];
     }
 
+    function exitParticipant(int256 indx) public onlyCommittee {
+        if (indx != -1) delete participants[uint256(indx)];
+    }
+
+    function exitHolder(address holder) public onlyCommittee {
+        for (uint256 i = 0; i < paymentHolders.length; i++) {
+            if (paymentHolders[i].holder.participant == holder) {
+                // Removing the allowances
+                decreaseAllowance(
+                    paymentHolders[i].holder.participant,
+                    getAllowance(paymentHolders[i].holder.participant)
+                );
+                delete paymentHolders[i];
+            }
+        }
+    }
+
     // Any allowance logic can be set here, currently it is half allowance
     function _calculateAllowanceAmount(uint256 payment)
         private
@@ -147,7 +164,7 @@ contract Token is ERC20, Ownable {
         // Deleting non participants
         for (uint256 i = 0; i < participants.length; i++) {
             if (!participants[i].isParticipanting) {
-                delete paymentHolders[i];
+                delete participants[i];
             }
         }
 

@@ -1,7 +1,7 @@
 # Committee Crypto Saving System
 
 _Deployed On Testnet (Rinkeby)_
-**Token address**: ```0x927cB8E11436E2037c6001568885D0e890bFA6a1```
+**Token address**: ```0x6D0F42F5d9b9825420a35c7149275134145C7DEE```
 
 ## Functionalities
 

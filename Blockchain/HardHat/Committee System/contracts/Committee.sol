@@ -8,6 +8,12 @@ contract CommitteePool {
     uint256 indx;
 
     event isLock(bool lock);
+    event isParticipating(bool status);
+
+    modifier checkPool(string memory _name, string memory _symbol) {
+        require(_isPoolPresent(_name, _symbol), "Pool not present");
+        _;
+    }
 
     function getPoolLength() public view returns (uint256) {
         return pools.length;
@@ -16,8 +22,8 @@ contract CommitteePool {
     function exchangePoolTokens(string memory _name, string memory _symbol)
         external
         payable
+        checkPool(_name, _symbol)
     {
-        require(_isPoolPresent(_name, _symbol), "Pool not present");
         pools[indx].mint(msg.sender, msg.value * 3);
     }
 
@@ -57,30 +63,24 @@ contract CommitteePool {
 
     function participateInPool(string memory _name, string memory _symbol)
         external
+        checkPool(_name, _symbol)
     {
-        require(_isPoolPresent(_name, _symbol), "Pool not present");
         require(!pools[indx].getLock(), "Pool is locked");
         pools[indx].addMe(msg.sender);
 
-	// Security Amount
-	pools[indx].getApprovalForToken(
+        // Security Amount
+        pools[indx].getApprovalForToken(
             msg.sender,
             address(this),
             pools[indx].getfixedAmount() / 2
         );
-	pools[indx].transferFrom(
-            msg.sender,
-            address(this),
-            pools[indx].getfixedAmount() / 2
-        );
-
         payCommittee();
     }
 
     function triggerPaymentInterval(string memory _name, string memory _symbol)
         external
+        checkPool(_name, _symbol)
     {
-        require(_isPoolPresent(_name, _symbol), "Pool not present");
         if (block.timestamp >= pools[indx].getExpiry()) {
             pools[indx].paymentInterval();
             pools[indx].setTotalAmount(0);
@@ -88,11 +88,48 @@ contract CommitteePool {
         }
     }
 
+    function exitCommittee(string memory _name, string memory _symbol)
+        external
+        checkPool(_name, _symbol)
+    {
+        // Getting Security
+        pools[indx].transferFrom(
+            msg.sender,
+            address(this),
+            pools[indx].getfixedAmount() / 2
+        );
+
+        // Should also deposit 4th part of the fixed amount
+        pools[indx].getApprovalForToken(
+            msg.sender,
+            address(this),
+            pools[indx].getfixedAmount() / 4
+        );
+        pools[indx].transferFrom(
+            msg.sender,
+            address(this),
+            pools[indx].getfixedAmount() / 4
+        );
+
+        int256 p_indx = pools[indx]._isParticipantPresent(msg.sender);
+        pools[indx].exitParticipant(p_indx);
+        pools[indx].exitHolder(msg.sender);
+    }
+
     function checkPoolStatus(string memory _name, string memory _symbol)
         external
+        checkPool(_name, _symbol)
     {
-        require(_isPoolPresent(_name, _symbol), "Pool not present");
         emit isLock(pools[indx].getLock());
+    }
+
+    function checkParticipantStatus(string memory _name, string memory _symbol)
+        external
+        checkPool(_name, _symbol)
+    {
+        int256 p_indx = pools[indx]._isParticipantPresent(msg.sender);
+        if (p_indx != -1) emit isParticipating(true);
+        else emit isParticipating(false);
     }
 
     function _isPoolPresent(string memory _name, string memory _symbol)

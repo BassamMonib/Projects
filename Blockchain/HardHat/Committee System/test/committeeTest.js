@@ -141,4 +141,28 @@ describe('Committee Test Cases', () => {
             await expect(await instance.checkPoolStatus("Bassam", "BAZ")).to.emit(instance, 'isLock').withArgs(false);
         })
     })
+
+    describe('Exiting policy of committee', () => {
+
+        it('Participant exiting from committee', async () => {
+
+            // Calling contract function to create new pool
+            await instance.createPool("Bassam", "BAZ", 10);
+
+            // Getting the pool tokens from ethers
+            await instance.exchangePoolTokens("Bassam", "BAZ", { value: ethers.utils.parseEther("10") });
+            await instance.connect(ALICE).exchangePoolTokens("Bassam", "BAZ", { value: ethers.utils.parseEther("10") });
+            await instance.connect(JON).exchangePoolTokens("Bassam", "BAZ", { value: ethers.utils.parseEther("10") });
+
+            // Paticipation in pool
+            await instance.participateInPool("Bassam", "BAZ");
+            await instance.connect(ALICE).participateInPool("Bassam", "BAZ");
+            await instance.connect(JON).participateInPool("Bassam", "BAZ");
+
+            // Triggering Payment Interval
+            await instance.exitCommittee("Bassam", "BAZ");
+
+            await expect(await instance.checkParticipantStatus("Bassam", "BAZ")).to.emit(instance, 'isParticipating').withArgs(false);
+        })
+    })
 })
