@@ -75,17 +75,15 @@ describe('CryptoZombies Testing', () => {
                  * so using try catch
                  */
                 await instance.createRandomZombie(zombieNames[1]);
-
-                /**
-                 * @dev If this gets invoke, it will show error which means our creation check is not working
-                 */
-                expect(true, 'This should not run, as you cannot create more than one zombies').to.be.false;
-
             } catch(err){
                 /** 
                  * @dev Flow should go through from here so that the test can finish gracefully
                  */
             }
+		/**
+                 * @dev If this gets invoke, it will show error which means our creation check is not working
+                 */
+                expect(true, 'This should not run, as you cannot create more than one zombies').to.be.false;
         })
 
         it('Checking created zombie owner account', async () => {
@@ -168,17 +166,15 @@ describe('CryptoZombies Testing', () => {
                  * due to this condition, we are using try catch
                  */
                 await instance.attack(await instance.zombieToOwner(0), await instance.zombieToOwner(1))
-            
-                /**
-                 * @dev If this gets invoke, it will show error which means our cooldown check is not working
-                 */
-                expect(true, 'This should not run, as you cannot attack other zombies during cooldown').to.be.false;
-
             } catch(err){
                 /** 
                  * @dev Flow should go through from here so that the test can finish gracefully
                  */
             }
+		/**
+                 * @dev If this gets invoke, it will show error which means our cooldown check is not working
+                 */
+                expect(true, 'This should not run, as you cannot attack other zombies during cooldown').to.be.false;
         })
 
         it('Win/loss after attacking zombie', async () => {
@@ -403,17 +399,15 @@ describe('CryptoZombies Testing', () => {
                  * so the call should not be successful that's why using try catch
                  */
                 await instance.changeName(0, "Dr. Lorax");      // An intelligent Zombie *_*
-                
-                /**
-                 * @dev If this gets invoke, it will show error which means our zombie name is changing
-                 */
-                 expect(true, 'This should not run, as you cannot change name under Level-2').to.be.false;
-
             } catch(err){
                 /** 
                  * @dev Flow should go through from here so that the test can finish gracefully
                  */
             }
+		/**
+                 * @dev If this gets invoke, it will show error which means our zombie name is changing
+                 */
+                expect(true, 'This should not run, as you cannot change name under Level-2').to.be.false;
 
         })
 
@@ -445,17 +439,15 @@ describe('CryptoZombies Testing', () => {
                  * so the call should not be successful that's why using try catch
                  */
                 await instance.changeDna(0, 100);      // An intelligent Zombie *_*
-                
-                /**
-                 * @dev If this gets invoke, it will show error which means our zombie name is changing
-                 */
-                 expect(true, 'This should not run, as you cannot change dna under level-20').to.be.false;
-
             } catch(err){
                 /** 
                  * @dev Flow should go through from here so that the test can finish gracefully
                  */
             }
+		/**
+                 * @dev If this gets invoke, it will show error which means our zombie name is changing
+                 */
+                expect(true, 'This should not run, as you cannot change dna under level-20').to.be.false;
 
         })
 

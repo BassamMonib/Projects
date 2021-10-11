@@ -76,15 +76,15 @@ describe('Marketplace Test Cases', () => {
                  * so using try catch
                  */
                 await instance.putDemand("Crypto Punk", 1500);
-                /**
-                 * @dev If this gets invoke, it will show error which means our require statement is not working
-                 */
-                expect(true, 'This should not run, as you cannot store already present demand').to.be.false;
             } catch(err){
                 /** 
                  * @dev Flow should go through from here so that the test can finish gracefully
                  */
             }
+		/**
+                 * @dev If this gets invoke, it will show error which means our require statement is not working
+                 */
+                expect(true, 'This should not run, as you cannot store already present demand').to.be.false;
         })
 
         it('Should not store already present request', async () => {
@@ -103,17 +103,15 @@ describe('Marketplace Test Cases', () => {
                   * so using try catch
                   */
                  await instance.putRequest("Crypto Kitty", 800);
- 
-                 /**
-                  * @dev If this gets invoke, it will show error which means our require statement is not working
-                  */
-                 expect(true, 'This should not run, as you cannot store already present request').to.be.false;
- 
              } catch(err){
                  /** 
                   * @dev Flow should go through from here so that the test can finish gracefully
                   */
              }
+		/**
+                  * @dev If this gets invoke, it will show error which means our require statement is not working
+                  */
+                 expect(true, 'This should not run, as you cannot store already present request').to.be.false;
         })
     })
 
