@@ -14,4 +14,4 @@ _Deployed On Testnet (Rinkeby)_
 
 ## Committee System Testing
 
-![Test Cases](TestCases.png)
+![Test Cases](test_cases.png)
