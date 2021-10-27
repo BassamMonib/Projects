@@ -1,5 +1,11 @@
 # Blockchain
 
+## React
+* React app using web3 library for getting blockchain information
+* 25-30 sec timeout for refreshing and getting latest information
+* Basic UI for integrating smart contract with frontend
+* Also using given functions to fetch the information
+
 ## Hardhat
 
 ### CryptoZombies TestCases
